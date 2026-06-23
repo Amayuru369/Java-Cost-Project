@@ -1,73 +1,37 @@
 package com.guesthouse.entities;
 
 public class Room {
-    private int roomId;
+    private int    roomId;
     private String roomNumber;
-    private String roomType; // Single, Double, Suite
+    private String type;          // "Single", "Double", "Suite"
     private double pricePerNight;
-    private boolean isAvailable;
+    private String status;        // "Available", "Booked", "Maintenance"
 
-    public Room() {
-    }
-
-    public Room(int roomId, String roomNumber, String roomType, double pricePerNight, boolean isAvailable) {
-        this.roomId = roomId;
-        this.roomNumber = roomNumber;
-        this.roomType = roomType;
+    public Room(int roomId, String roomNumber, String type,
+                double pricePerNight, String status) {
+        this.roomId        = roomId;
+        this.roomNumber    = roomNumber;
+        this.type          = type;
         this.pricePerNight = pricePerNight;
-        this.isAvailable = isAvailable;
-    }
-
-    // Constructor without ID (for inserting new rooms)
-    public Room(String roomNumber, String roomType, double pricePerNight, boolean isAvailable) {
-        this.roomNumber = roomNumber;
-        this.roomType = roomType;
-        this.pricePerNight = pricePerNight;
-        this.isAvailable = isAvailable;
-    }
-
-    public int getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
-    }
-
-    public String getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-
-    public String getRoomType() {
-        return roomType;
-    }
-
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
-    }
-
-    public double getPricePerNight() {
-        return pricePerNight;
-    }
-
-    public void setPricePerNight(double pricePerNight) {
-        this.pricePerNight = pricePerNight;
+        this.status        = status;
     }
 
     public boolean isAvailable() {
-        return isAvailable;
+        return "Available".equals(status);
     }
 
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
+    public int    getRoomId()        { return roomId; }
+    public String getRoomNumber()    { return roomNumber; }
+    public String getType()          { return type; }
+    public double getPricePerNight() { return pricePerNight; }
+    public String getStatus()        { return status; }
+
+    public void setType(String type)               { this.type = type; }
+    public void setPricePerNight(double price)     { this.pricePerNight = price; }
+    public void setStatus(String status)           { this.status = status; }
 
     @Override
     public String toString() {
-        return roomNumber + " - " + roomType + " ($" + pricePerNight + "/night)";
+        return "Room " + roomNumber + " | " + type + " | Rs. " + pricePerNight + " | " + status;
     }
 }
