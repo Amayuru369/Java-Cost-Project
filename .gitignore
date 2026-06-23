@@ -1,0 +1,22 @@
+# Compiled class files
+*.class
+out/
+build/
+target/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.eclipse
+.classpath
+.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database credentials (change DBConnection.java locally, never commit passwords)
+# Keep database.sql but ignore any local config overrides
+*.env
